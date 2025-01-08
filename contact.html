@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Saya</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="greeting"></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about.html">Profil</a></li>
+                <li><a href="gallery.html">Galeri</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Kontak</h2>
+            <form id="contact-form">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Pesan:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Kirim</button>
+            </form>
+        </section>
+        <section>
+            <h2>Informasi Kontak</h2>
+            <p>Email: <a href="mailto:emailanda@example.com">edika.rosyid07@gmail.com</a></p>
+            <p>Telepon: +62 857 2728 1921</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Edika Rosyid. Semua hak dilindungi.</p>
+    </footer>
+    <script>
+        // Fungsi untuk memperbarui sapaan berdasarkan waktu
+        function updateGreeting() {
+            const greetingElement = document.getElementById('greeting');
+            const hours = new Date().getHours();
+            let greeting;
+
+            if (hours < 12) {
+                greeting = "Selamat Pagi!";
+            } else if (hours < 18) {
+                greeting = "Selamat Siang!";
+            } else {
+                greeting = "Selamat Malam!";
+            }
+
+            greetingElement.textContent = greeting;
+        }
+
+        // Menangani pengiriman formulir
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman form secara default
+            alert('Pesan Anda telah dikirim! Terima kasih telah menghubungi saya.');
+            this.reset(); // Mengatur ulang form setelah pengiriman
+        });
+
+        // Memperbarui sapaan saat halaman dimuat
+        updateGreeting();
+    </script>
+</body>
+</html>
